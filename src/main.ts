@@ -1,8 +1,8 @@
-import "./style.scss";
+import './style.scss';
 
 const main = () => {
   const renderCanvas = document.getElementById(
-    "renderCanvas"
+    'renderCanvas'
   ) as HTMLCanvasElement;
   if (!renderCanvas) {
     return;
@@ -11,8 +11,7 @@ const main = () => {
   renderCanvas.width = document.firstElementChild?.clientWidth ?? 0;
   renderCanvas.height = document.firstElementChild?.clientHeight ?? 0;
 
-  console.log("Hello");
+  console.log('Hello');
 };
 
 main();
-

@@ -1,5 +1,5 @@
 interface XR8 {
-  boo: string;
+  version(): string;
 }
 
 declare const XR8: XR8;

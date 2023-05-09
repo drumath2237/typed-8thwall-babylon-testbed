@@ -23,7 +23,7 @@ const main = () => {
     0
   );
 
-  XR8.boo;
+  console.log(XR8.version());
 
   engine.runRenderLoop(() => {
     scene.render();

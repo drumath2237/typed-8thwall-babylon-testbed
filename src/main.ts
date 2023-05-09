@@ -1,5 +1,11 @@
 import './style.scss';
-import { Engine, MeshBuilder, Scene, Vector3 } from '@babylonjs/core';
+import {
+  Engine,
+  FreeCamera,
+  MeshBuilder,
+  Scene,
+  Vector3,
+} from '@babylonjs/core';
 
 const main = () => {
   const renderCanvas = document.getElementById(
@@ -15,19 +21,16 @@ const main = () => {
   const engine = new Engine(renderCanvas, true);
   const scene = new Scene(engine);
 
-  scene.createDefaultCameraOrLight(true, true, true);
+  scene.createDefaultLight(true);
+  const camera = new FreeCamera('camera', Vector3.Zero(), scene, true);
 
-  MeshBuilder.CreateBox('box', { size: 0.1 }).position = new Vector3(
-    0,
-    0.05,
-    0
-  );
+  camera.addBehavior(XR8.Babylonjs.xrCameraBehavior(), true);
 
-  console.log(XR8.version());
+  MeshBuilder.CreateBox('box', { size: 0.3 }).position = new Vector3(0, 1.5, 0);
 
   engine.runRenderLoop(() => {
     scene.render();
   });
 };
 
-main();
+window.addEventListener('xrloaded', main);

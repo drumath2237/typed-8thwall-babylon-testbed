@@ -26,7 +26,22 @@ const main = () => {
 
   camera.addBehavior(XR8.Babylonjs.xrCameraBehavior(), true);
 
-  MeshBuilder.CreateBox('box', { size: 0.3 }).position = new Vector3(0, 1.5, 0);
+  const box = MeshBuilder.CreateBox('box', { size: 0.3 });
+
+  scene.onReadyObservable.add(() => {
+    setInterval(() => {
+      const hitRes = XR8.XrController.hitTest(0.5, 0.5);
+      const nearest = hitRes.sort((a, b) => a.distance - b.distance)[0];
+      if (!nearest) {
+        return;
+      }
+      box.position = new Vector3(
+        nearest.position.x,
+        nearest.position.y,
+        nearest.position.z
+      );
+    }, 100);
+  });
 
   engine.runRenderLoop(() => {
     scene.render();

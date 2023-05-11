@@ -1,6 +1,7 @@
 interface XR8 {
   version(): string;
   Babylonjs: Babylonjs;
+  addCameraPipelineModule(any): void;
 }
 
 interface Babylonjs {

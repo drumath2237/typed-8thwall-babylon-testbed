@@ -41,7 +41,7 @@ jobs:
       - name: Build
         run: |
           touch .env
-          echo $VITE_API_KEY >> .env
+          echo ${{ secrets.VITE_API_KEY }} >> .env
           npm run build
 
       - name: Setup Pages

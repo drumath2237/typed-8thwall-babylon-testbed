@@ -3,6 +3,7 @@ import {
   Engine,
   FreeCamera,
   MeshBuilder,
+  Quaternion,
   Scene,
   Vector3,
 } from '@babylonjs/core';
@@ -35,12 +36,20 @@ const main = () => {
       if (!nearest) {
         return;
       }
+
       box.position = new Vector3(
         nearest.position.x,
         nearest.position.y,
         nearest.position.z
       );
-    }, 100);
+
+      box.rotationQuaternion = new Quaternion(
+        nearest.rotation.x,
+        nearest.rotation.y,
+        nearest.rotation.z,
+        nearest.rotation.w
+      );
+    }, 33);
   });
 
   engine.runRenderLoop(() => {
@@ -48,4 +57,4 @@ const main = () => {
   });
 };
 
-window.addEventListener('xrloaded', main);
+XR8 ? main() : window.addEventListener('xrloaded', main);

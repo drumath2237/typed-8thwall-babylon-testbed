@@ -1,7 +1,5 @@
 interface XR8 {
-  version(): string;
   Babylonjs: Babylonjs;
-  addCameraPipelineModule(any): void;
 }
 
 interface Babylonjs {
@@ -34,5 +32,3 @@ enum XrConfigDevice {
   MOBILE_AND_HEADSETS = 'mobile-and-headsets',
   ANY = 'any',
 }
-
-declare const XR8: XR8;

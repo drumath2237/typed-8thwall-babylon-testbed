@@ -41,7 +41,7 @@ jobs:
       - name: Build
         run: |
           touch .env
-          echo VITE_API_KEY=${{secrets.VITE_API_KEY}} >> .env
+          echo VITE_API_KEY=$VITE_API_KEY >> .env
           cat .env
 
       - run: npm run build

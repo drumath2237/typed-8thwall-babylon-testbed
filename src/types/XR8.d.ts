@@ -4,3 +4,7 @@ interface XR8 {
 }
 
 declare const XR8: XR8;
+
+interface Window {
+  XR8: XR8;
+}

@@ -57,8 +57,4 @@ const main = () => {
   });
 };
 
-if (XR8) {
-  main();
-} else {
-  window.addEventListener('xrloaded', main);
-}
+window.XR8 ? main() : window.addEventListener('xrloaded', main);

@@ -11,5 +11,7 @@ export default defineConfig(({ mode }) => {
       plugins: [mkcert()],
     };
   }
-  return {};
+  return {
+    base: '/typed-8thwall-babylon-testbed/',
+  };
 });

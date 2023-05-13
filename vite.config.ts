@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
     };
   }
   return {
+    // setting for GitHub Pages
     base: '/typed-8thwall-babylon-testbed/',
   };
 });
